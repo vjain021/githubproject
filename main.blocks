@@ -1,1 +1,18 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="5|mbI-XvL|OdKVWu2k]7" x="0" y="0"></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="F);s$uN]m+}F*OGfx%pm">Player</variable><variable type="KIND_SpriteKind" id="z|s|@D7%fhd}o)_`::6B">Projectile</variable><variable type="KIND_SpriteKind" id="S!Pz{HFe=y[JSZH/9kiM">Food</variable><variable type="KIND_SpriteKind" id="w,5r!6Nk{Gwy^.pO;O6@">Enemy</variable><variable id="N^7kSEP$w7fYh.w/JdTa">mySprite</variable><variable id="K0.}1@Z`f8KguE+=T-2a">item</variable></variables><block type="pxt-on-start" id=",J#ZDnZ~CBC/vD8y?f-1" x="0" y="0"><statement name="HANDLER"><block type="gamesetbackgroundcolor" id="YgWi|uECXi(gvsWI-(Wr"><value name="color"><shadow type="colorindexpicker" id="cJYEocSnXh.Q)S.Z/u.n"><field name="index">9</field></shadow></value><next><block type="variables_set" id="Zj/L2zxt_McWlyxg;RSY"><field name="VAR" id="N^7kSEP$w7fYh.w/JdTa">mySprite</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="(KEr9=OG0ixceRuc%buW"><value name="img"><shadow type="screen_image_picker" id="./O-8SDk`M~qc^Gk+VW)"><field name="img">img`
+. . . . . . . . . . b 5 b . . . 
+. . . . . . . . . b 5 b . . . . 
+. . . . . . b b b b b b . . . . 
+. . . . . b b 5 5 5 5 5 b . . . 
+. . . . b b 5 d 1 f 5 d 4 c . . 
+. . . . b 5 5 1 f f d d 4 4 4 b 
+. . . . b 5 5 d f b 4 4 4 4 b . 
+. . . b d 5 5 5 5 4 4 4 4 b . . 
+. . b d d 5 5 5 5 5 5 5 5 b . . 
+. b d d d d 5 5 5 5 5 5 5 5 b . 
+b d d d b b b 5 5 5 5 5 5 5 b . 
+c d d b 5 5 d c 5 5 5 5 5 5 b . 
+c b b d 5 d c d 5 5 5 5 5 5 b . 
+. b 5 5 b c d d 5 5 5 5 5 d b . 
+b b c c c d d d d 5 5 5 b b . . 
+. . . c c c c c c c c b b . . . 
+`</field><data>{"commentRefs":[],"fieldData":{"img":"./O-8SDk`M~qc^Gk+VW)"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="|Dm-o(._XbmGI1YnZmeQ"><field name="MEMBER">Player</field></shadow></value></block></value></block></next></block></statement></block></xml>
