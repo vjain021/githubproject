@@ -1,5 +1,5 @@
 scene.setBackgroundColor(9)
-let mySprite = sprites.create(img`
+let duck = sprites.create(img`
     . . . . . . . . . . b 5 b . . . 
     . . . . . . . . . b 5 b . . . . 
     . . . . . . b b b b b b . . . . 
