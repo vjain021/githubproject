@@ -2,7 +2,9 @@
     "name": "gitHubProject",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "darts": "*",
+        "Football_Jain": "pub:36070-32648-65948-03313"
     },
     "files": [
         "main.blocks",

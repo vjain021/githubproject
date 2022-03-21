@@ -1,19 +1,74 @@
-scene.setBackgroundColor(9)
-let duck = sprites.create(img`
-    . . . . . . . . . . b 5 b . . . 
-    . . . . . . . . . b 5 b . . . . 
-    . . . . . . b b b b b b . . . . 
-    . . . . . b b 5 5 5 5 5 b . . . 
-    . . . . b b 5 d 1 f 5 d 4 c . . 
-    . . . . b 5 5 1 f f d d 4 4 4 b 
-    . . . . b 5 5 d f b 4 4 4 4 b . 
-    . . . b d 5 5 5 5 4 4 4 4 b . . 
-    . . b d d 5 5 5 5 5 5 5 5 b . . 
-    . b d d d d 5 5 5 5 5 5 5 5 b . 
-    b d d d b b b 5 5 5 5 5 5 5 b . 
-    c d d b 5 5 d c 5 5 5 5 5 5 b . 
-    c b b d 5 d c d 5 5 5 5 5 5 b . 
-    . b 5 5 b c d d 5 5 5 5 5 d b . 
-    b b c c c d d d d 5 5 5 b b . . 
-    . . . c c c c c c c c b b . . . 
-    `, SpriteKind.Player)
+namespace SpriteKind {
+    export const Goal = SpriteKind.create()
+    export const Obstacle = SpriteKind.create()
+}
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    let myFootball2: Dart = null
+    myFootball2.throwDart()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Goal, function (sprite, otherSprite) {
+    game.over(true)
+})
+let obstacle1 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 2 2 2 2 2 e . . . 
+    . . . . . . 2 2 2 2 d 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 e f f c c 
+    . . . . . e e 2 2 e f f f f b c 
+    . . . e e e f e 2 2 b f f f d c 
+    . . e e 2 2 d f e 2 1 1 1 1 b c 
+    . . e e 2 2 d f e e e c c c . . 
+    . . b 1 1 d e 2 2 e e c . . . . 
+    . . . f f f d d 2 2 f d d . . . 
+    . . . . f f d d e e f d d . . . 
+    . . . . . f f f f f . . . . . . 
+    . . . . e e e f f . . . . . . . 
+    . . . . e e e e f f . . . . . . 
+    `, SpriteKind.Enemy)
+obstacle1.setPosition(55, 5)
+obstacle1.vy = randint(10, 20)
+obstacle1.setBounceOnWall(true)
+let obstacle2 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 2 2 2 2 2 e . . . 
+    . . . . . . 2 2 2 2 d 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 e f f c c 
+    . . . . . e e 2 2 e f f f f b c 
+    . . . e e e f e 2 2 b f f f d c 
+    . . e e 2 2 d f e 2 1 1 1 1 b c 
+    . . e e 2 2 d f e e e c c c . . 
+    . . b 1 1 d e 2 2 e e c . . . . 
+    . . . f f f d d 2 2 f d d . . . 
+    . . . . f f d d e e f d d . . . 
+    . . . . . f f f f f . . . . . . 
+    . . . . e e e f f . . . . . . . 
+    . . . . e e e e f f . . . . . . 
+    `, SpriteKind.Enemy)
+obstacle2.setPosition(85, 105)
+obstacle2.vy = randint(-15, -25)
+obstacle2.setBounceOnWall(true)
+let obstacle3 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 2 2 2 2 2 e . . . 
+    . . . . . . 2 2 2 2 d 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 2 2 e . . 
+    . . . . . e 2 2 2 2 2 e f f c c 
+    . . . . . e e 2 2 e f f f f b c 
+    . . . e e e f e 2 2 b f f f d c 
+    . . e e 2 2 d f e 2 1 1 1 1 b c 
+    . . e e 2 2 d f e e e c c c . . 
+    . . b 1 1 d e 2 2 e e c . . . . 
+    . . . f f f d d 2 2 f d d . . . 
+    . . . . f f d d e e f d d . . . 
+    . . . . . f f f f f . . . . . . 
+    . . . . e e e f f . . . . . . . 
+    . . . . e e e e f f . . . . . . 
+    `, SpriteKind.Enemy)
+obstacle3.setPosition(120, 5)
+obstacle3.vy = randint(20, 30)
+obstacle3.setBounceOnWall(true)
