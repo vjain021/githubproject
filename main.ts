@@ -1,14 +1,3 @@
-namespace SpriteKind {
-    export const Goal = SpriteKind.create()
-    export const Obstacle = SpriteKind.create()
-}
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let myFootball2: Dart = null
-    myFootball2.throwDart()
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Goal, function (sprite, otherSprite) {
-    game.over(true)
-})
 let obstacle1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . 2 2 2 2 2 e . . . 

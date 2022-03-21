@@ -4,7 +4,7 @@
     "dependencies": {
         "device": "*",
         "darts": "*",
-        "Football_Jain": "pub:36070-32648-65948-03313"
+        "Football_Jain": "pub:19886-91925-07159-54679"
     },
     "files": [
         "main.blocks",
