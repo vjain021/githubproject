@@ -1,10 +1,10 @@
 {
-    "name": "gitHubProject",
+    "name": "gitHubProject - Copy",
     "description": "",
     "dependencies": {
         "device": "*",
         "darts": "*",
-        "Football_Jain": "pub:19886-91925-07159-54679"
+        "Football_Jain - Copy": "pub:90590-42237-66451-67168"
     },
     "files": [
         "main.blocks",
