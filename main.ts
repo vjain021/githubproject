@@ -1,25 +1,6 @@
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
-    myPlayer.destroy()
     sprite.destroy()
-    hasBall = true
-    ballPlayer = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . 8 9 9 9 9 9 . . . . . . 
-        . . . 8 9 9 d 9 9 9 9 . . . . . 
-        . . . 8 9 9 9 9 9 9 9 8 . . . . 
-        . . . 8 9 9 9 9 9 9 9 8 . . . . 
-        . c c f f 8 9 9 9 9 9 8 . . . . 
-        . c b f f f f 8 9 9 8 8 . . . . 
-        . c d f f f f 8 8 f 8 8 8 . . . 
-        . c b c 4 4 b c f d 9 9 8 8 . . 
-        . . . c 4 1 1 4 c b 9 9 8 8 . . 
-        . . . c 4 4 4 4 c 8 b 1 1 b . . 
-        . . . c b 4 4 4 d d f f f f . . 
-        . . . . c c c c d d f f f f f f 
-        . . . . . c c c f f f f . f f f 
-        . . . . . . . 8 8 8 . . . . f f 
-        . . . . . . 8 8 8 8 . . . . . . 
-        `, SpriteKind.Player)
+    myPlayer.destroy()
     controller.moveSprite(ballPlayer, 50, 50)
     ballPlayer.setPosition(145, position)
 })
@@ -94,7 +75,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let obstacle3: Sprite = null
 let obstacle2: Sprite = null
 let obstacle1: Sprite = null
-let hasBall = false
 let ballPlayer: Sprite = null
 let position = 0
 let myPlayer: Sprite = null
@@ -120,6 +100,30 @@ myPlayer = sprites.create(img`
     `, SpriteKind.Player)
 position = randint(20, 100)
 myPlayer.setPosition(145, position)
-if (ballPlayer.x == 25) {
-    info.changeScoreBy(7)
-}
+ballPlayer = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . 8 9 9 9 9 9 . . . . . . 
+    . . . 8 9 9 d 9 9 9 9 . . . . . 
+    . . . 8 9 9 9 9 9 9 9 8 . . . . 
+    . . . 8 9 9 9 9 9 9 9 8 . . . . 
+    . c c f f 8 9 9 9 9 9 8 . . . . 
+    . c b f f f f 8 9 9 8 8 . . . . 
+    . c d f f f f 8 8 f 8 8 8 . . . 
+    . c b c 4 4 b c f d 9 9 8 8 . . 
+    . . . c 4 1 1 4 c b 9 9 8 8 . . 
+    . . . c 4 4 4 4 c 8 b 1 1 b . . 
+    . . . c b 4 4 4 d d f f f f . . 
+    . . . . c c c c d d f f f f f f 
+    . . . . . c c c f f f f . f f f 
+    . . . . . . . 8 8 8 . . . . f f 
+    . . . . . . 8 8 8 8 . . . . . . 
+    `, SpriteKind.Player)
+ballPlayer.setPosition(200, position)
+game.onUpdateInterval(500, function () {
+    if (info.score() != 35) {
+        if (ballPlayer.x < 25) {
+            info.changeScoreBy(7)
+            ballPlayer.setPosition(145, position)
+        }
+    }
+})
