@@ -78,6 +78,7 @@ let obstacle1: Sprite = null
 let ballPlayer: Sprite = null
 let position = 0
 let myPlayer: Sprite = null
+let name = game.askForString("What is your name?")
 info.setScore(0)
 setDefenders()
 myPlayer = sprites.create(img`
