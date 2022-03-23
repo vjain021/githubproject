@@ -1,6 +1,8 @@
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+    myPlayer.destroy()
+    sprite.destroy()
     hasBall = true
-    myPlayer = sprites.create(img`
+    ballPlayer = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . 8 9 9 9 9 9 . . . . . . 
         . . . 8 9 9 d 9 9 9 9 . . . . . 
@@ -18,8 +20,8 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
         . . . . . . . 8 8 8 . . . . f f 
         . . . . . . 8 8 8 8 . . . . . . 
         `, SpriteKind.Player)
-    controller.moveSprite(myPlayer, 50, 50)
-    myPlayer.setPosition(145, 50)
+    controller.moveSprite(ballPlayer, 50, 50)
+    ballPlayer.setPosition(145, position)
 })
 function setDefenders () {
     obstacle1 = sprites.create(img`
@@ -86,11 +88,6 @@ function setDefenders () {
     obstacle3.vy = randint(20, 40)
     obstacle3.setBounceOnWall(true)
 }
-function isWin () {
-    if (myPlayer.x == 25) {
-        game.over(true)
-    }
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
@@ -98,7 +95,11 @@ let obstacle3: Sprite = null
 let obstacle2: Sprite = null
 let obstacle1: Sprite = null
 let hasBall = false
+let ballPlayer: Sprite = null
+let position = 0
 let myPlayer: Sprite = null
+info.setScore(0)
+setDefenders()
 myPlayer = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . 8 9 9 9 9 9 . . . . . . . 
@@ -117,6 +118,8 @@ myPlayer = sprites.create(img`
     . . . . . . . f f 8 8 8 . . . . 
     . . . . . . f f 8 8 8 8 . . . . 
     `, SpriteKind.Player)
-myPlayer.setPosition(145, 50)
-setDefenders()
-isWin()
+position = randint(20, 100)
+myPlayer.setPosition(145, position)
+if (ballPlayer.x == 25) {
+    info.changeScoreBy(7)
+}
