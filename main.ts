@@ -69,6 +69,9 @@ function setDefenders () {
     obstacle3.vy = randint(20, 40)
     obstacle3.setBounceOnWall(true)
 }
+function isWin (playerName: string) {
+    return "You win " + playerName + "!"
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
@@ -126,5 +129,8 @@ game.onUpdateInterval(500, function () {
             info.changeScoreBy(7)
             ballPlayer.setPosition(145, position)
         }
+    } else if (info.score() == 35) {
+        game.splash(isWin(name))
+        game.over(true)
     }
 })
